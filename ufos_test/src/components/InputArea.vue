@@ -1,8 +1,8 @@
 <template>
   <div class="add_task">
       <div class="add_task__input">
-          <input placeholder="Новая задача..." type="text" v-model="data">
-          <textarea placeholder="Описание" type="text" v-model="data"></textarea>
+          <input placeholder="Новая задача..." type="text" v-model="title">
+          <textarea placeholder="Описание" type="text" v-model="desc"></textarea>
       </div>
       <button class="add_task__btn" @click="add_new_task">➕</button>    
   </div>
@@ -11,26 +11,22 @@
 <script>
 
 export default {
-    name: 'InputArea',
-    props: {
-       data: {
-           type: Object,
-           required: false
-       }
-    },
-    methods: {
-        add_new_task() {
-            this.$emit('add_task')
-        }
-    },
-
-    mounted() {
-        console.log(this.data);
-    },
-    data() {
-        return this.data
-},
-   
+  name: 'InputArea',
+  data() {
+    return {
+      title: '',
+      desc: '',
+    }
+  },
+  methods: {
+    add_new_task() {
+      this.$emit('add_new_task', 
+      {
+        title: this.title,
+        desc: this.desc
+      })
+    }
+  },
 }
 </script>
 

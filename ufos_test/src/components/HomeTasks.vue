@@ -14,22 +14,18 @@
 export default {
   name: 'HomeTasks',
   props: {
-      data: {
-          type: Object,
-          required: false
-      }
+    data: {
+      type: Object,
+      required: false
+    }
+  },
+  data() {
+    return this.data
   },
   methods: {
-      task_done() {
-          this.$emit('task_done')
-      }
-  },
-
-//     mounted() {
-//         console.log(this.data);
-//     },
-  data() {
-      return this.data
+    task_done() {
+      this.$emit('task_done')
+    }
   },
 }
 </script>

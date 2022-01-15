@@ -3,7 +3,6 @@
     <div>
       <h3 class="task__title">{{data.title}}</h3>
       <p v-if="data.desc!=''" class="task__desc ">{{data.desc}}</p>
-      <!-- <p class="task__desc">{{data.desc}}</p> -->
     </div>
     
     <button @click="task_done" class="task__done">✔️</button>
@@ -15,22 +14,18 @@
 export default {
   name: 'WorkTasks',
   props: {
-      data: {
-          type: Object,
-          required: false
-      }
-  },
-  methods: {
-      task_done() {
-          this.$emit('task_done')
-      }
-  },
-
-  mounted() {
-      console.log(this.data);
+    data: {
+      type: Object,
+      required: false
+    }
   },
   data() {
-      return this.tasks
+    return this.data
+  },
+  methods: {
+    task_done() {
+      this.$emit('task_done')
+    }
   },
 }
 </script>

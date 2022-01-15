@@ -20,14 +20,8 @@
         <HomeTasks :data='task' @task_done="delete_task(index)"/>
       </div>   
   </div>
-  <!-- <InputArea @add_new_task='add_task'/> -->
-  <div class="add_task">
-      <div class="add_task__input">
-          <input placeholder="Новая задача..." type="text" v-model="new_task.title">
-          <textarea placeholder="Описание" type="text" v-model="new_task.desc"></textarea>
-      </div>
-      <button class="add_task__btn" @click="add_task">➕</button>    
-  </div>
+  <InputArea @add_new_task='add_task'/>
+
 </div> 
 
 <div v-show="selectedTab === 'Work Tasks'">
@@ -41,13 +35,7 @@
       </div>   
   </div>
 
-  <div class="add_task">
-      <div class="add_task__input">
-          <input placeholder="Новая задача..." type="text" v-model="new_task.title">
-          <textarea placeholder="Описание" type="text" v-model="new_task.desc"></textarea>
-      </div>
-      <button class="add_task__btn" @click="add_task">➕</button>    
-  </div>
+  <InputArea @add_new_task='add_task'/>
 </div>
 
 </div>
@@ -69,13 +57,6 @@ export default {
     return {
       tabs: ['Home Tasks', 'Work Tasks'],
       selectedTab: 'Home Tasks',
-
-      new_task: [
-        {
-          title: '',
-          desc: ''
-        }
-      ],
       homeTasks: [],
       workTasks: []
     }
@@ -89,20 +70,18 @@ export default {
       }
   },
 
-    add_task() {
+    add_task(data) {
       if (this.selectedTab === 'Home Tasks') {
         this.homeTasks.push({
-          title: this.new_task.title,
-          desc: this.new_task.desc
+          title: data.title,
+          desc: data.desc
         })
         } else {
         this.workTasks.push({
-          title: this.new_task.title,
-          desc: this.new_task.desc
+          title: data.title,
+          desc: data.title
         })
       }
-        this.new_task.title = '';
-        this.new_task.desc = '';
     }
   },
 
