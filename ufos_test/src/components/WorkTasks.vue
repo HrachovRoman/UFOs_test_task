@@ -13,26 +13,25 @@
 
 <script>
 export default {
-    name: 'WorkTasks',
-    props: {
-       data: {
-           type: Object,
-           required: false
-       }
-    },
-    methods: {
-        task_done() {
-            this.$emit('task_done')
-        }
-    },
+  name: 'WorkTasks',
+  props: {
+      data: {
+          type: Object,
+          required: false
+      }
+  },
+  methods: {
+      task_done() {
+          this.$emit('task_done')
+      }
+  },
 
-    mounted() {
-        console.log(this.data);
-    },
-    data() {
-        return this.tasks
-},
-   
+  mounted() {
+      console.log(this.data);
+  },
+  data() {
+      return this.tasks
+  },
 }
 </script>
 

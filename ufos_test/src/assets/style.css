@@ -41,7 +41,7 @@
     justify-content: space-between;
     margin: -10px -10px 10px -10px;
     padding: 10px;
-    max-width: 100%;
+    width: 100%;
   }
   .task:hover {
     background-color: #2f485811;
@@ -58,6 +58,7 @@
     width: 30px !important;
     border: none;
     background-color: unset;
+    margin-right: 15px;
   }
   .task__done:hover {
     cursor: pointer;
@@ -94,8 +95,12 @@
     border-radius: 4px;
     background-color: #2f485811;
   }
-
-  .tabs {
+.tab {
+  cursor: pointer;
+}
+.activeTab {
+    color: #16C0B0;
+    text-decoration: underline;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
@@ -107,11 +112,6 @@
     line-height: 1.5;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
     cursor: pointer;
-    position: relative;
     margin: 12px;
     top: 1px;
-  }
-.activeTab {
-    color: #16C0B0;
-    text-decoration: underline;
 }
