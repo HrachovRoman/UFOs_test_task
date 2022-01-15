@@ -25,6 +25,7 @@ export default {
         title: this.title,
         desc: this.desc
       })
+      return this.title = '', this.desc = '';
     }
   },
 }

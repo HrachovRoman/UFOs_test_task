@@ -17,9 +17,12 @@
             class="add_task"
             v-for="(task, index) in homeTasks" 
             :key="index">
+
         <HomeTasks :data='task' @task_done="delete_task(index)"/>
+        
       </div>   
   </div>
+
   <InputArea @add_new_task='add_task'/>
 
 </div> 
@@ -31,11 +34,14 @@
             class="add_task"
             v-for="(task, index) in workTasks" 
             :key="index">
+
         <WorkTasks :data='task' @task_done="delete_task(index)"/>
+
       </div>   
   </div>
 
   <InputArea @add_new_task='add_task'/>
+
 </div>
 
 </div>
@@ -70,16 +76,16 @@ export default {
       }
   },
 
-    add_task(data) {
+    add_task(data_input) {
       if (this.selectedTab === 'Home Tasks') {
         this.homeTasks.push({
-          title: data.title,
-          desc: data.desc
+          title: data_input.title,
+          desc: data_input.desc
         })
         } else {
         this.workTasks.push({
-          title: data.title,
-          desc: data.title
+          title: data_input.title,
+          desc: data_input.title
         })
       }
     }
