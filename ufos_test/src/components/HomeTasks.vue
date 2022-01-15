@@ -26,11 +26,11 @@ export default {
         }
     },
 
-    mounted() {
-        console.log(this.data);
-    },
+//     mounted() {
+//         console.log(this.data);
+//     },
     data() {
-        return this.tasks
+        return this.data
 },
    
 }
