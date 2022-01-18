@@ -1,4 +1,5 @@
 <template>
+
   <div class="add_task">
       <div class="add_task__input">
           <input placeholder="Новая задача..." type="text" v-model="title">
@@ -12,6 +13,7 @@
 
 export default {
   name: 'InputArea',
+
   data() {
     return {
       title: '',
