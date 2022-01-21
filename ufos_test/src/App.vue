@@ -1,89 +1,55 @@
 <template>
-<div class='container'>
-  <h4 class="stats__main">"Общих задач: + {{ MainTasks }}"</h4>
-    
-    <ul class="nav nav-tabs">
-        <li role="presentation" @click="currentTab = 'home'"><a>Home Tasks</a></li>
-        <li role="presentation" @click="currentTab = 'work'"><a>Work Tasks</a></li>
-    </ul>
-
-  <div class="tab-content">
-    <div v-if="currentTab === 'home'">
-        <div class="stats"> 
-        <h3 class="stats__title">"Текущих задач: + {{ homeTasks.length }}"</h3>
-          <div :data="data" 
-                class="add_task"
-                v-for="(task, index) in homeTasks" 
-                :key="index">
-
-            <GeneralTasks :data='task' @task_done="delete_task(index)"/>
-            
-          </div>   
-        </div>
-            <InputArea @add_new_task='add_task'/>
-    </div>
-
-    <div v-if="currentTab === 'work'">
-        <div class="stats"> 
-          <h3 class="stats__title">"Текущих задач: + {{ workTasks.length }}"</h3>
-          <div :data="data" 
-                class="add_task"
-                v-for="(task, index) in workTasks" 
-                :key="index">
-
-            <GeneralTasks :data='task' @task_done="delete_task(index)"/>
-
-          </div>   
-        </div>
-            <InputArea @add_new_task='add_task'/>
-    </div>
+<div id="app">
+  <div id="nav">
+    <router-link to="/">ToDo</router-link> |
+    <router-link to="/about">About</router-link> | 
+    <router-link to="/slot">Slot</router-link>
   </div>
+  <component :is='layout'>
+    <router-view/>
+  </component>
 </div>
 </template>
 
 <script>
-import GeneralTasks from './components/GeneralTasks.vue'
-import InputArea from './components/InputArea.vue'
-
-export default {
-  name: 'App',
-  components: {
-    GeneralTasks,
-    InputArea
-  },
-  data() {
-    return {
-      homeTasks: [],
-      workTasks: [],
-      currentTab: 'home'
-    }
-  },
-  methods: {
-    delete_task(id) {
-      if (this.currentTab === 'home') {
-        this.homeTasks.splice(id, 1)
-      } else {
-        this.workTasks.splice(id, 1)
+  export default {
+    computed: {
+      layout() {
+        return `layout-${this.$route.meta.layout}`
       }
-  },
-    add_task(data_input) {
-      if (this.currentTab === 'home') {
-        this.homeTasks.push({
-          title: data_input.title,
-          desc: data_input.desc
-        })
-        } else {
-        this.workTasks.push({
-          title: data_input.title,
-          desc: data_input.title
-        })
-      }
-    }
-  },
-  computed: {
-    MainTasks: function () {
-      return this.homeTasks.length + this.workTasks.length
     }
   }
-}
 </script>
+
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  float: left;
+  background: #d3e2ec;; 
+  border: 2px solid rgb(255 255 255);
+  border-radius: 10px;
+  margin: 20px 15px;
+  box-shadow: 5px -5px 2px 0px #e1e1e1;
+  width: 5%;;
+  padding: 30px;
+  display: flex;
+  flex-direction: column; 
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+</style>
