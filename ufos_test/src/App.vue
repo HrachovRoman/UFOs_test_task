@@ -1,5 +1,6 @@
 <template> 
 <div id="app">
+
   <div id="nav">
     <router-link to="/">ToDo</router-link> |
     <router-link to="/about">About</router-link> | 
@@ -12,10 +13,15 @@
 </template>
 
 <script>
+
   export default {
+    name: 'App',
+    components: {
+    },
+
     computed: {
       layout() {
-        return `layout-${this.$route.meta.layout}`
+        return this.$route.meta.layout;
       }
     }
   }

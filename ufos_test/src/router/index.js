@@ -2,14 +2,15 @@ import { createRouter, createWebHistory } from 'vue-router'
 import ToDo from '../views/ToDo.vue'
 import About from '../views/About.vue'
 import Slot from '../views/Slot.vue'
+import SlotLayout from '../layouts/SlotLayout.vue'
 
 const routes = [
   {
     path: '/',
     name: 'ToDo',
-    component: () => import('@/views/ToDo.vue'),
+    component: () => import('../views/ToDo'),
     meta: {
-        layout: 'ToDoLayouts'
+        layout: 'DefaultLayout'
     }
   },
   {
@@ -17,19 +18,19 @@ const routes = [
     name: 'About',
     component: () => import('@/views/About.vue'),
     meta: {
-        layout: 'AboutLayouts'
+        layout: 'DefaultLayout'
     }
   },
   {
     path: '/slot',
     name: 'Slot',
-    component: () => import('@/views/Slot.vue'),
+    component: () => import('../views/Slot.vue'),
     meta: {
-        layout: 'SlotLayouts'
+        layout: 'SlotLayout.vue'
     }
   },
 
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

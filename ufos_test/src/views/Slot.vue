@@ -1,22 +1,29 @@
 <template>
-    <div class="slot">
+<SlotLayout>
+ 
+    <div class="container-slot">
         <h2>Slot</h2>
             <code>&lt;slot>&lt;/slot></code>
+            
     </div>
-    <div class="test-layout"></div>
+    </SlotLayout>   
+        
+   
 </template>
 
 <script>
+import SlotLayout from '../layouts/SlotLayout.vue'
 export default {
-
+    components: {SlotLayout}
 }
 </script>
 
 <style scoped>
-.slot {
+.container-slot {
     display: flex;
     flex-direction: column;
     padding: 15px;
+    
 }
 .test-layout {
     display: flex;
