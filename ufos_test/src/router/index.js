@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import ToDo from '../views/ToDo.vue'
 import About from '../views/About.vue'
 import Slot from '../views/Slot.vue'
-import SlotLayout from '../layouts/SlotLayout.vue'
+import SlotLayout from '../layouts/Slotlayout.vue'
 
 const routes = [
   {
@@ -10,7 +10,7 @@ const routes = [
     name: 'ToDo',
     component: () => import('../views/ToDo'),
     meta: {
-        layout: 'DefaultLayout'
+        layout: 'Defaultlayout'
     }
   },
   {
@@ -18,15 +18,15 @@ const routes = [
     name: 'About',
     component: () => import('@/views/About.vue'),
     meta: {
-        layout: 'DefaultLayout'
+        layout: 'Defaultlayout'
     }
   },
   {
     path: '/slot',
     name: 'Slot',
-    component: () => import('../views/Slot.vue'),
+    component: () => import('@/views/Slot.vue'),
     meta: {
-        layout: 'SlotLayout.vue'
+        layout: 'Slotlayout'
     }
   },
 

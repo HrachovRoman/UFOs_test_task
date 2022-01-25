@@ -1,20 +1,16 @@
 <template>
-<SlotLayout>
- 
-    <div class="container-slot">
-        <h2>Slot</h2>
-            <code>&lt;slot>&lt;/slot></code>
-            
-    </div>
-    </SlotLayout>   
-        
-   
+    <Slotlayout>
+        <div class="container-slot">
+            <h2>Slot</h2>
+                <code>&lt;slot>&lt;/slot></code>
+        </div>
+    </Slotlayout>   
 </template>
 
 <script>
-import SlotLayout from '../layouts/SlotLayout.vue'
+import Slotlayout from '@/layouts/Slotlayout.vue'
 export default {
-    components: {SlotLayout}
+    components: {Slotlayout} 
 }
 </script>
 

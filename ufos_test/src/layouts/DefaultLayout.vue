@@ -6,8 +6,7 @@
 
 <script>
 export default {
-    name: 'DefaultLayout'
-
+    name: 'Defaultlayout'
 }
 </script>
 
